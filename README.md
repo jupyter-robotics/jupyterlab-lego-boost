@@ -3,15 +3,29 @@
 [![Github Actions Status](https://github.com/QuantStack/jupyterlab-lego-boost/workflows/Build/badge.svg)](https://github.com/QuantStack/jupyterlab-lego-boost/actions/workflows/build.yml)[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/QuantStack/jupyterlab-lego-boost/main?urlpath=lab)
 Blockly extension for JupyterLab to control the Lego Boost
 
+## Blockly
+
+Blockly is a library from Google for building beginner-friendly block-based programming languages.
+
+Docs: https://developers.google.com/blockly/guides/overview
+Repo: https://github.com/google/blockly
+
+## Lego Boost Robotics Set
+A Lego creative toolbox which offers an easy way to learn the basics of coding, engineering and robotics.
+
+Link: https://www.lego.com/en-de/product/boost-creative-toolbox-17101
+
 ## Requirements
 
-- JupyterLab >= 3.0
+- JupyterLab == 3.4
 
 ## Install
 
 To install the extension, execute:
 
 ```bash
+micromamba create -n boost -c conda-forge python nodejs yarn jupyterlab==3.4 jupyter-packaging jupyterlab-language-pack-es-ES jupyterlab-language-pack-fr-FR ipykernel xeus-python xeus-lua
+micromamba activate boost
 pip install jupyterlab-lego-boost
 ```
 
@@ -34,6 +48,8 @@ The `jlpm` command is JupyterLab's pinned version of
 `yarn` or `npm` in lieu of `jlpm` below.
 
 ```bash
+micromamba create -n boost -c conda-forge python nodejs yarn jupyterlab==3.4 jupyter-packaging jupyterlab-language-pack-es-ES jupyterlab-language-pack-fr-FR ipykernel xeus-python xeus-lua
+micromamba activate boost
 # Clone the repo to your local environment
 # Change directory to the jupyterlab-lego-boost directory
 # Install package in development mode
