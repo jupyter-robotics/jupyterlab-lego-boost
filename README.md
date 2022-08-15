@@ -1,4 +1,4 @@
-# jupyterlab_lego_boost
+# jupyterlab-lego-boost
 
 [![Github Actions Status](https://github.com/QuantStack/jupyterlab-lego-boost/workflows/Build/badge.svg)](https://github.com/QuantStack/jupyterlab-lego-boost/actions/workflows/build.yml)[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/QuantStack/jupyterlab-lego-boost/main?urlpath=lab)
 Blockly extension for JupyterLab to control the Lego Boost
@@ -12,7 +12,7 @@ Blockly extension for JupyterLab to control the Lego Boost
 To install the extension, execute:
 
 ```bash
-pip install jupyterlab_lego_boost
+pip install jupyterlab-lego-boost
 ```
 
 ## Uninstall
@@ -20,7 +20,7 @@ pip install jupyterlab_lego_boost
 To remove the extension, execute:
 
 ```bash
-pip uninstall jupyterlab_lego_boost
+pip uninstall jupyterlab-lego-boost
 ```
 
 ## Contributing
@@ -35,7 +35,7 @@ The `jlpm` command is JupyterLab's pinned version of
 
 ```bash
 # Clone the repo to your local environment
-# Change directory to the jupyterlab_lego_boost directory
+# Change directory to the jupyterlab-lego-boost directory
 # Install package in development mode
 pip install -e .
 # Link your development version of the extension with JupyterLab
@@ -64,7 +64,7 @@ jupyter lab build --minimize=False
 ### Development uninstall
 
 ```bash
-pip uninstall jupyterlab_lego_boost
+pip uninstall jupyterlab-lego-boost
 ```
 
 In development mode, you will also need to remove the symlink created by `jupyter labextension develop`
