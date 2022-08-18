@@ -87,7 +87,17 @@
   },
   "jupyterlab": {
     "extension": true,
-    "outputDir": "jupyterlab_lego_boost/labextension"
+    "outputDir": "jupyterlab_lego_boost/labextension",
+    "sharedPackages": {
+      "jupyterlab-blockly": { 
+        "bundled": false, 
+        "singleton": true 
+      }, 
+      "blockly": { 
+        "bundled": false, 
+        "singleton": true 
+      } 
+    }
   },
   "jupyter-releaser": {
     "hooks": {
