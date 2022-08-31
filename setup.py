@@ -55,6 +55,9 @@ setup_args = dict(
     include_package_data=True,
     python_requires=">=3.7",
     install_requires=['jupyterlab-blockly>=0.1.1,<0.2'],
+    extras_require={
+        'env': ['bleak', 'pylgbst']
+    },
     platforms="Linux, Mac OS X, Windows",
     keywords=["Jupyter", "JupyterLab", "JupyterLab3"],
     classifiers=[
