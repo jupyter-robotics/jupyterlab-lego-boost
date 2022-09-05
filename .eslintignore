@@ -6,3 +6,8 @@ tests
 
 **/__tests__
 ui-tests
+
+examples
+.eslintignore
+.eslintrc.js
+.gitignore
