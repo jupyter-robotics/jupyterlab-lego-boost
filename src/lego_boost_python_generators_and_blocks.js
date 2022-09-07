@@ -198,11 +198,11 @@ Blockly.Blocks['lego_boost_sleep'] = {
  * Generators
  */
 
-Blockly.Python['lego_boost_connect'] = function (block) {
-  var value_bluetooth_address = Blockly.Python.valueToCode(
+BlocklyPy['lego_boost_connect'] = function (block) {
+  var value_bluetooth_address = BlocklyPy.valueToCode(
     block,
     'BLUETOOTH_ADDRESS',
-    Blockly.Python.ORDER_ATOMIC
+    BlocklyPy.ORDER_ATOMIC
   );
 
   var code =
@@ -217,17 +217,13 @@ from pylgbst.hub import MoveHub
 from pylgbst import get_connection_bleak
 `;
 
-Blockly.Python['lego_boost_move_motor_a_timed'] = function (block) {
-  var value_time = Blockly.Python.valueToCode(
-    block,
-    'TIME',
-    Blockly.Python.ORDER_ATOMIC
-  );
+BlocklyPy['lego_boost_move_motor_a_timed'] = function (block) {
+  var value_time = BlocklyPy.valueToCode(block, 'TIME', BlocklyPy.ORDER_ATOMIC);
 
-  var value_speed = Blockly.Python.valueToCode(
+  var value_speed = BlocklyPy.valueToCode(
     block,
     'SPEED',
-    Blockly.Python.ORDER_ATOMIC
+    BlocklyPy.ORDER_ATOMIC
   );
 
   var code = 'hub.motor_A.timed(' + value_time + ', ' + value_speed + ')\n';
@@ -238,17 +234,13 @@ Blockly.Blocks['lego_boost_move_motor_a_timed'].toplevel_init = `
 import time
 `;
 
-Blockly.Python['lego_boost_move_motor_b_timed'] = function (block) {
-  var value_time = Blockly.Python.valueToCode(
-    block,
-    'TIME',
-    Blockly.Python.ORDER_ATOMIC
-  );
+BlocklyPy['lego_boost_move_motor_b_timed'] = function (block) {
+  var value_time = BlocklyPy.valueToCode(block, 'TIME', BlocklyPy.ORDER_ATOMIC);
 
-  var value_speed = Blockly.Python.valueToCode(
+  var value_speed = BlocklyPy.valueToCode(
     block,
     'SPEED',
-    Blockly.Python.ORDER_ATOMIC
+    BlocklyPy.ORDER_ATOMIC
   );
 
   var code = 'hub.motor_B.timed(' + value_time + ', ' + value_speed + ')\n';
@@ -259,57 +251,53 @@ Blockly.Blocks['lego_boost_move_motor_b_timed'].toplevel_init = `
 import time
 `;
 
-Blockly.Python['lego_boost_move_motor_a_angled'] = function (block) {
-  var value_angle = Blockly.Python.valueToCode(
+BlocklyPy['lego_boost_move_motor_a_angled'] = function (block) {
+  var value_angle = BlocklyPy.valueToCode(
     block,
     'ANGLE',
-    Blockly.Python.ORDER_ATOMIC
+    BlocklyPy.ORDER_ATOMIC
   );
 
-  var value_speed = Blockly.Python.valueToCode(
+  var value_speed = BlocklyPy.valueToCode(
     block,
     'SPEED',
-    Blockly.Python.ORDER_ATOMIC
+    BlocklyPy.ORDER_ATOMIC
   );
 
   var code = 'hub.motor_A.angled(' + value_angle + ', ' + value_speed + ')\n';
   return code;
 };
 
-Blockly.Python['lego_boost_move_motor_b_angled'] = function (block) {
-  var value_angle = Blockly.Python.valueToCode(
+BlocklyPy['lego_boost_move_motor_b_angled'] = function (block) {
+  var value_angle = BlocklyPy.valueToCode(
     block,
     'ANGLE',
-    Blockly.Python.ORDER_ATOMIC
+    BlocklyPy.ORDER_ATOMIC
   );
 
-  var value_speed = Blockly.Python.valueToCode(
+  var value_speed = BlocklyPy.valueToCode(
     block,
     'SPEED',
-    Blockly.Python.ORDER_ATOMIC
+    BlocklyPy.ORDER_ATOMIC
   );
 
   var code = 'hub.motor_B.angled(' + value_angle + ', ' + value_speed + ')\n';
   return code;
 };
 
-Blockly.Python['lego_boost_move_motor_ab_timed'] = function (block) {
-  var value_time = Blockly.Python.valueToCode(
-    block,
-    'TIME',
-    Blockly.Python.ORDER_ATOMIC
-  );
+BlocklyPy['lego_boost_move_motor_ab_timed'] = function (block) {
+  var value_time = BlocklyPy.valueToCode(block, 'TIME', BlocklyPy.ORDER_ATOMIC);
 
-  var value_speed_a = Blockly.Python.valueToCode(
+  var value_speed_a = BlocklyPy.valueToCode(
     block,
     'SPEED_A',
-    Blockly.Python.ORDER_ATOMIC
+    BlocklyPy.ORDER_ATOMIC
   );
 
-  var value_speed_b = Blockly.Python.valueToCode(
+  var value_speed_b = BlocklyPy.valueToCode(
     block,
     'SPEED_B',
-    Blockly.Python.ORDER_ATOMIC
+    BlocklyPy.ORDER_ATOMIC
   );
 
   var code =
@@ -327,23 +315,23 @@ Blockly.Blocks['lego_boost_move_motor_ab_timed'].toplevel_init = `
 import time
 `;
 
-Blockly.Python['lego_boost_move_motor_ab_angled'] = function (block) {
-  var value_angle = Blockly.Python.valueToCode(
+BlocklyPy['lego_boost_move_motor_ab_angled'] = function (block) {
+  var value_angle = BlocklyPy.valueToCode(
     block,
     'ANGLE',
-    Blockly.Python.ORDER_ATOMIC
+    BlocklyPy.ORDER_ATOMIC
   );
 
-  var value_speed_a = Blockly.Python.valueToCode(
+  var value_speed_a = BlocklyPy.valueToCode(
     block,
     'SPEED_A',
-    Blockly.Python.ORDER_ATOMIC
+    BlocklyPy.ORDER_ATOMIC
   );
 
-  var value_speed_b = Blockly.Python.valueToCode(
+  var value_speed_b = BlocklyPy.valueToCode(
     block,
     'SPEED_B',
-    Blockly.Python.ORDER_ATOMIC
+    BlocklyPy.ORDER_ATOMIC
   );
 
   var code =
@@ -356,35 +344,36 @@ Blockly.Python['lego_boost_move_motor_ab_angled'] = function (block) {
   return code;
 };
 
-Blockly.Python['lego_boost_start_speed'] = function (block) {
-  var value_speed = Blockly.Python.valueToCode(
+BlocklyPy['lego_boost_start_speed'] = function (block) {
+  var value_speed = BlocklyPy.valueToCode(
     block,
     'SPEED',
-    Blockly.Python.ORDER_ATOMIC
+    BlocklyPy.ORDER_ATOMIC
   );
 
   var code = 'hub.motor_external.start_speed(' + value_speed + ')\n';
   return code;
 };
 
-Blockly.Python['lego_boost_stop_motors'] = function (block) {
+BlocklyPy['lego_boost_stop_motors'] = function (block) {
   var code = 'hub.motor_external.stop()\n';
   return code;
 };
 
-Blockly.Python['lego_boost_disconnect'] = function (block) {
+BlocklyPy['lego_boost_disconnect'] = function (block) {
   var code = 'hub.disconnect()\n';
   return code;
 };
 
-Blockly.Python['lego_boost_sleep'] = function (block) {
-  var value_seconds = Blockly.Python.valueToCode(
+BlocklyPy['lego_boost_sleep'] = function (block) {
+  var value_seconds = BlocklyPy.valueToCode(
     block,
     'SECONDS',
-    Blockly.Python.ORDER_ATOMIC
+    BlocklyPy.ORDER_ATOMIC
   );
 
   var code = 'time.sleep(' + value_seconds + ')\n';
+  return code;
 };
 
 Blockly.Blocks['lego_boost_sleep'].toplevel_init = `
