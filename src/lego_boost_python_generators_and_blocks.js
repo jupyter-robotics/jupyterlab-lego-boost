@@ -218,11 +218,7 @@ from pylgbst import get_connection_bleak
 `;
 
 BlocklyPy['lego_boost_move_motor_a_timed'] = function (block) {
-  var value_time = BlocklyPy.valueToCode(
-    block,
-    'TIME',
-    BlocklyPy.ORDER_ATOMIC
-  );
+  var value_time = BlocklyPy.valueToCode(block, 'TIME', BlocklyPy.ORDER_ATOMIC);
 
   var value_speed = BlocklyPy.valueToCode(
     block,
@@ -239,11 +235,7 @@ import time
 `;
 
 BlocklyPy['lego_boost_move_motor_b_timed'] = function (block) {
-  var value_time = BlocklyPy.valueToCode(
-    block,
-    'TIME',
-    BlocklyPy.ORDER_ATOMIC
-  );
+  var value_time = BlocklyPy.valueToCode(block, 'TIME', BlocklyPy.ORDER_ATOMIC);
 
   var value_speed = BlocklyPy.valueToCode(
     block,
@@ -294,11 +286,7 @@ BlocklyPy['lego_boost_move_motor_b_angled'] = function (block) {
 };
 
 BlocklyPy['lego_boost_move_motor_ab_timed'] = function (block) {
-  var value_time = BlocklyPy.valueToCode(
-    block,
-    'TIME',
-    BlocklyPy.ORDER_ATOMIC
-  );
+  var value_time = BlocklyPy.valueToCode(block, 'TIME', BlocklyPy.ORDER_ATOMIC);
 
   var value_speed_a = BlocklyPy.valueToCode(
     block,
