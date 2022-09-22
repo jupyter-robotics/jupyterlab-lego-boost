@@ -59,7 +59,9 @@ Blockly.Blocks['lego_boost_movement_forward'] = {
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(lego_boost_color);
-    this.setTooltip('Move motors AB straight forward for a certain time and speed.');
+    this.setTooltip(
+      'Move motors AB straight forward for a certain time and speed.'
+    );
     this.setHelpUrl('');
   }
 };
@@ -70,13 +72,15 @@ Blockly.Blocks['lego_boost_movement_backwards'] = {
       .setCheck('Number')
       .appendField('Move backwards for time');
     this.appendValueInput('SPEED')
-        .setCheck('Number')
-        .appendField('and with speed');
+      .setCheck('Number')
+      .appendField('and with speed');
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(lego_boost_color);
-    this.setTooltip('Move motors AB straight backwards for a certain time and speed.');
+    this.setTooltip(
+      'Move motors AB straight backwards for a certain time and speed.'
+    );
     this.setHelpUrl('');
   }
 };
@@ -152,7 +156,6 @@ Blockly.Blocks['lego_boost_movement_rotate_360_right'] = {
     this.setHelpUrl('');
   }
 };
-
 
 Blockly.Blocks['lego_boost_movement_turn_right_timed'] = {
   init: function () {
@@ -230,7 +233,9 @@ Blockly.Blocks['lego_boost_move_motor_ab_timed'] = {
     this.appendValueInput('SPEED_A')
       .setCheck('Number')
       .appendField('and speeds for the right motor');
-    this.appendValueInput('SPEED_B').setCheck('Number').appendField('and left motor');
+    this.appendValueInput('SPEED_B')
+      .setCheck('Number')
+      .appendField('and left motor');
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -248,7 +253,9 @@ Blockly.Blocks['lego_boost_move_motor_ab_angled'] = {
     this.appendValueInput('SPEED_A')
       .setCheck('Number')
       .appendField('with speeds for right motor');
-    this.appendValueInput('SPEED_B').setCheck('Number').appendField('and left motor');
+    this.appendValueInput('SPEED_B')
+      .setCheck('Number')
+      .appendField('and left motor');
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -428,7 +435,8 @@ BlocklyPy['lego_boost_movement_turn_right_angled'] = function (block) {
     BlocklyPy.ORDER_ATOMIC
   );
 
-  var code = 'hub.motor_A.angled(' + value_angle*6 + ', ' + value_speed + ')\n';
+  var code =
+    'hub.motor_A.angled(' + value_angle * 6 + ', ' + value_speed + ')\n';
   return code;
 };
 
@@ -445,7 +453,8 @@ BlocklyPy['lego_boost_movement_turn_left_angled'] = function (block) {
     BlocklyPy.ORDER_ATOMIC
   );
 
-  var code = 'hub.motor_B.angled(' + value_angle*6 + ', ' + value_speed + ')\n';
+  var code =
+    'hub.motor_B.angled(' + value_angle * 6 + ', ' + value_speed + ')\n';
   return code;
 };
 
