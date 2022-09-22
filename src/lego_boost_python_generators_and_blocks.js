@@ -38,7 +38,6 @@ Blockly.Blocks['lego_boost_connect'] = {
     this.appendValueInput('BLUETOOTH_ADDRESS')
       .setCheck('String')
       .appendField('Connect to MoveHub on address');
-    // this.appendStatementInput('DO');
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -48,62 +47,180 @@ Blockly.Blocks['lego_boost_connect'] = {
   }
 };
 
-Blockly.Blocks['lego_boost_move_motor_a_timed'] = {
+Blockly.Blocks['lego_boost_movement_forward'] = {
   init: function () {
     this.appendValueInput('TIME')
       .setCheck('Number')
-      .appendField('Move motor A for time');
-    this.appendValueInput('SPEED').setCheck('Number').appendField('and speed');
+      .appendField('Move forward for time');
+    this.appendValueInput('SPEED')
+      .setCheck('Number')
+      .appendField('and with speed');
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(lego_boost_color);
-    this.setTooltip('Move motor A for time and speed.');
+    this.setTooltip(
+      'Move motors AB straight forward for a certain time and speed.'
+    );
     this.setHelpUrl('');
   }
 };
 
-Blockly.Blocks['lego_boost_move_motor_b_timed'] = {
+Blockly.Blocks['lego_boost_movement_backwards'] = {
   init: function () {
     this.appendValueInput('TIME')
       .setCheck('Number')
-      .appendField('Move motor B for time');
-    this.appendValueInput('SPEED').setCheck('Number').appendField('and speed');
+      .appendField('Move backwards for time');
+    this.appendValueInput('SPEED')
+      .setCheck('Number')
+      .appendField('and with speed');
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(lego_boost_color);
-    this.setTooltip('Move motor B for time and speed.');
+    this.setTooltip(
+      'Move motors AB straight backwards for a certain time and speed.'
+    );
     this.setHelpUrl('');
   }
 };
 
-Blockly.Blocks['lego_boost_move_motor_a_angled'] = {
+Blockly.Blocks['lego_boost_movement_rotate_left'] = {
   init: function () {
-    this.appendValueInput('ANGLE')
-      .setCheck('Number')
-      .appendField('Move motor A at angle');
-    this.appendValueInput('SPEED').setCheck('Number').appendField('and speed');
+    this.appendDummyInput().appendField('Rotate left');
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(lego_boost_color);
-    this.setTooltip('Move motor A at a certain angle and speed.');
+    this.setTooltip('Rotate left.');
     this.setHelpUrl('');
   }
 };
 
-Blockly.Blocks['lego_boost_move_motor_b_angled'] = {
+Blockly.Blocks['lego_boost_movement_rotate_right'] = {
   init: function () {
-    this.appendValueInput('ANGLE')
-      .setCheck('Number')
-      .appendField('Move motor B at angle');
-    this.appendValueInput('SPEED').setCheck('Number').appendField('and speed');
+    this.appendDummyInput().appendField('Rotate right');
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(lego_boost_color);
-    this.setTooltip('Move motor B at a certain angle and speed.');
+    this.setTooltip('Rotate right.');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['lego_boost_movement_rotate_180_left'] = {
+  init: function () {
+    this.appendDummyInput().appendField('Rotate 180° to the left');
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(lego_boost_color);
+    this.setTooltip('Rotate 180° to the left');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['lego_boost_movement_rotate_180_right'] = {
+  init: function () {
+    this.appendDummyInput().appendField('Rotate 180° to the right');
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(lego_boost_color);
+    this.setTooltip('Rotate 180° to the right');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['lego_boost_movement_rotate_360_left'] = {
+  init: function () {
+    this.appendDummyInput().appendField('Rotate 360° to the left');
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(lego_boost_color);
+    this.setTooltip('Rotate 360° to the left');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['lego_boost_movement_rotate_360_right'] = {
+  init: function () {
+    this.appendDummyInput().appendField('Rotate 360° to the right');
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(lego_boost_color);
+    this.setTooltip('Rotate 360° to the right');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['lego_boost_movement_turn_right_timed'] = {
+  init: function () {
+    this.appendValueInput('TIME')
+      .setCheck('Number')
+      .appendField('Turn right for time');
+    this.appendValueInput('SPEED')
+      .setCheck('Number')
+      .appendField('and with speed');
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(lego_boost_color);
+    this.setTooltip('Turn right for a certain time and speed.');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['lego_boost_movement_turn_left_timed'] = {
+  init: function () {
+    this.appendValueInput('TIME')
+      .setCheck('Number')
+      .appendField('Turn left for time');
+    this.appendValueInput('SPEED')
+      .setCheck('Number')
+      .appendField('and with speed');
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(lego_boost_color);
+    this.setTooltip('Turn left for a certain time and speed.');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['lego_boost_movement_turn_right_angled'] = {
+  init: function () {
+    this.appendValueInput('ANGLE')
+      .setCheck('Number')
+      .appendField('Turn right at ');
+    this.appendValueInput('SPEED')
+      .setCheck('Number')
+      .appendField('angle and with speed');
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(lego_boost_color);
+    this.setTooltip('Turn right at a certain angle and speed.');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['lego_boost_movement_turn_left_angled'] = {
+  init: function () {
+    this.appendValueInput('ANGLE')
+      .setCheck('Number')
+      .appendField('Turn left at ');
+    this.appendValueInput('SPEED')
+      .setCheck('Number')
+      .appendField('angle and with speed');
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(lego_boost_color);
+    this.setTooltip('Turn left at a certain angle and speed.');
     this.setHelpUrl('');
   }
 };
@@ -112,11 +229,13 @@ Blockly.Blocks['lego_boost_move_motor_ab_timed'] = {
   init: function () {
     this.appendValueInput('TIME')
       .setCheck('Number')
-      .appendField('Move group motors AB for time');
+      .appendField('Move both motors for time');
     this.appendValueInput('SPEED_A')
       .setCheck('Number')
-      .appendField('and speeds for motor A');
-    this.appendValueInput('SPEED_B').setCheck('Number').appendField('and B');
+      .appendField('and speeds for the right motor');
+    this.appendValueInput('SPEED_B')
+      .setCheck('Number')
+      .appendField('and left motor');
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -130,30 +249,18 @@ Blockly.Blocks['lego_boost_move_motor_ab_angled'] = {
   init: function () {
     this.appendValueInput('ANGLE')
       .setCheck('Number')
-      .appendField('Move group motors AB at angle');
+      .appendField('Move both motors at angle');
     this.appendValueInput('SPEED_A')
       .setCheck('Number')
-      .appendField('with speeds for motor A');
-    this.appendValueInput('SPEED_B').setCheck('Number').appendField('and B');
+      .appendField('with speeds for right motor');
+    this.appendValueInput('SPEED_B')
+      .setCheck('Number')
+      .appendField('and left motor');
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(lego_boost_color);
     this.setTooltip('Move group motors AB at a certain angle and speed.');
-    this.setHelpUrl('');
-  }
-};
-
-Blockly.Blocks['lego_boost_start_speed'] = {
-  init: function () {
-    this.appendValueInput('SPEED')
-      .setCheck('Number')
-      .appendField('Start motors with speed');
-    this.setInputsInline(true);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(lego_boost_color);
-    this.setTooltip('Enables motor with specified speed forever.');
     this.setHelpUrl('');
   }
 };
@@ -215,9 +322,81 @@ BlocklyPy['lego_boost_connect'] = function (block) {
 Blockly.Blocks['lego_boost_connect'].toplevel_init = `
 from pylgbst.hub import MoveHub
 from pylgbst import get_connection_bleak
+import time 
+
 `;
 
-BlocklyPy['lego_boost_move_motor_a_timed'] = function (block) {
+BlocklyPy['lego_boost_movement_forward'] = function (block) {
+  var value_time = BlocklyPy.valueToCode(block, 'TIME', BlocklyPy.ORDER_ATOMIC);
+
+  var value_speed = BlocklyPy.valueToCode(
+    block,
+    'SPEED',
+    BlocklyPy.ORDER_ATOMIC
+  );
+
+  var code =
+    'hub.motor_AB.timed(' +
+    value_time +
+    ', ' +
+    value_speed +
+    ', ' +
+    value_speed +
+    ')\n';
+  return code;
+};
+
+BlocklyPy['lego_boost_movement_backwards'] = function (block) {
+  var value_time = BlocklyPy.valueToCode(block, 'TIME', BlocklyPy.ORDER_ATOMIC);
+
+  var value_speed = BlocklyPy.valueToCode(
+    block,
+    'SPEED',
+    BlocklyPy.ORDER_ATOMIC
+  );
+
+  var code =
+    'hub.motor_AB.timed( ' +
+    value_time +
+    ', -' +
+    value_speed +
+    ', -' +
+    value_speed +
+    ')\n';
+  return code;
+};
+
+BlocklyPy['lego_boost_movement_rotate_right'] = function (block) {
+  var code = 'hub.motor_A.angled(540, 1)\n';
+  return code;
+};
+
+BlocklyPy['lego_boost_movement_rotate_left'] = function (block) {
+  var code = 'hub.motor_B.angled(540, 1)\n';
+  return code;
+};
+
+BlocklyPy['lego_boost_movement_rotate_180_left'] = function (block) {
+  var code = 'hub.motor_B.angled(1080, 1)\n';
+  return code;
+};
+
+BlocklyPy['lego_boost_movement_rotate_180_right'] = function (block) {
+  var code = 'hub.motor_A.angled(1080, 1)\n';
+  return code;
+};
+
+BlocklyPy['lego_boost_movement_rotate_360_left'] = function (block) {
+  var code = 'hub.motor_B.timed(1.7, 1)\n';
+  return code;
+};
+
+BlocklyPy['lego_boost_movement_rotate_360_right'] = function (block) {
+  var code = 'hub.motor_A.timed(1.7, 1)\n';
+  return code;
+};
+
+BlocklyPy['lego_boost_movement_turn_right_timed'] = function (block) {
   var value_time = BlocklyPy.valueToCode(block, 'TIME', BlocklyPy.ORDER_ATOMIC);
 
   var value_speed = BlocklyPy.valueToCode(
@@ -230,11 +409,7 @@ BlocklyPy['lego_boost_move_motor_a_timed'] = function (block) {
   return code;
 };
 
-Blockly.Blocks['lego_boost_move_motor_a_timed'].toplevel_init = `
-import time
-`;
-
-BlocklyPy['lego_boost_move_motor_b_timed'] = function (block) {
+BlocklyPy['lego_boost_movement_turn_left_timed'] = function (block) {
   var value_time = BlocklyPy.valueToCode(block, 'TIME', BlocklyPy.ORDER_ATOMIC);
 
   var value_speed = BlocklyPy.valueToCode(
@@ -247,11 +422,7 @@ BlocklyPy['lego_boost_move_motor_b_timed'] = function (block) {
   return code;
 };
 
-Blockly.Blocks['lego_boost_move_motor_b_timed'].toplevel_init = `
-import time
-`;
-
-BlocklyPy['lego_boost_move_motor_a_angled'] = function (block) {
+BlocklyPy['lego_boost_movement_turn_right_angled'] = function (block) {
   var value_angle = BlocklyPy.valueToCode(
     block,
     'ANGLE',
@@ -264,11 +435,12 @@ BlocklyPy['lego_boost_move_motor_a_angled'] = function (block) {
     BlocklyPy.ORDER_ATOMIC
   );
 
-  var code = 'hub.motor_A.angled(' + value_angle + ', ' + value_speed + ')\n';
+  var code =
+    'hub.motor_A.angled(' + value_angle * 6 + ', ' + value_speed + ')\n';
   return code;
 };
 
-BlocklyPy['lego_boost_move_motor_b_angled'] = function (block) {
+BlocklyPy['lego_boost_movement_turn_left_angled'] = function (block) {
   var value_angle = BlocklyPy.valueToCode(
     block,
     'ANGLE',
@@ -281,7 +453,8 @@ BlocklyPy['lego_boost_move_motor_b_angled'] = function (block) {
     BlocklyPy.ORDER_ATOMIC
   );
 
-  var code = 'hub.motor_B.angled(' + value_angle + ', ' + value_speed + ')\n';
+  var code =
+    'hub.motor_B.angled(' + value_angle * 6 + ', ' + value_speed + ')\n';
   return code;
 };
 
@@ -310,10 +483,6 @@ BlocklyPy['lego_boost_move_motor_ab_timed'] = function (block) {
     ')\n';
   return code;
 };
-
-Blockly.Blocks['lego_boost_move_motor_ab_timed'].toplevel_init = `
-import time
-`;
 
 BlocklyPy['lego_boost_move_motor_ab_angled'] = function (block) {
   var value_angle = BlocklyPy.valueToCode(
@@ -375,10 +544,6 @@ BlocklyPy['lego_boost_sleep'] = function (block) {
   var code = 'time.sleep(' + value_seconds + ')\n';
   return code;
 };
-
-Blockly.Blocks['lego_boost_sleep'].toplevel_init = `
-import time
-`;
 
 // Creating a toolbox containing all the main blocks
 // and adding the lego boost catgory.
@@ -744,19 +909,51 @@ const TOOLBOX = {
         },
         {
           kind: 'BLOCK',
-          type: 'lego_boost_move_motor_a_timed'
+          type: 'lego_boost_movement_forward'
         },
         {
           kind: 'BLOCK',
-          type: 'lego_boost_move_motor_b_timed'
+          type: 'lego_boost_movement_backwards'
         },
         {
           kind: 'BLOCK',
-          type: 'lego_boost_move_motor_a_angled'
+          type: 'lego_boost_movement_rotate_left'
         },
         {
           kind: 'BLOCK',
-          type: 'lego_boost_move_motor_b_angled'
+          type: 'lego_boost_movement_rotate_right'
+        },
+        {
+          kind: 'BLOCK',
+          type: 'lego_boost_movement_rotate_180_left'
+        },
+        {
+          kind: 'BLOCK',
+          type: 'lego_boost_movement_rotate_180_right'
+        },
+        {
+          kind: 'BLOCK',
+          type: 'lego_boost_movement_rotate_360_left'
+        },
+        {
+          kind: 'BLOCK',
+          type: 'lego_boost_movement_rotate_360_right'
+        },
+        {
+          kind: 'BLOCK',
+          type: 'lego_boost_movement_turn_left_timed'
+        },
+        {
+          kind: 'BLOCK',
+          type: 'lego_boost_movement_turn_right_timed'
+        },
+        {
+          kind: 'BLOCK',
+          type: 'lego_boost_movement_turn_left_angled'
+        },
+        {
+          kind: 'BLOCK',
+          type: 'lego_boost_movement_turn_right_angled'
         },
         {
           kind: 'BLOCK',
@@ -766,10 +963,6 @@ const TOOLBOX = {
           kind: 'BLOCK',
           type: 'lego_boost_move_motor_ab_angled'
         },
-        // {
-        //   kind: 'BLOCK',
-        //   type: 'lego_boost_start_speed'
-        // },
         {
           kind: 'BLOCK',
           type: 'lego_boost_stop_motors'
