@@ -38,6 +38,16 @@ To remove the extension, execute:
 pip uninstall jupyterlab-lego-boost
 ```
 
+## Connecting to Lego Boost
+
+**Note** : Before you start using the extension, make sure the firmware is updated from the official app. Most errors related to a faulty connection can easily be fixed by updating the firmware. Sometimes multiple firware updates can take place, one after the other, each time you connect to the MoveHub from the official app.
+
+In order to connect to the robot you only need the bluetooth address of your MoveHub, which can be found from the bluetooth settings of your device. Once you have it, just replace it in the `examples/demo.jpblockly' file, specifically in the connection block, after that you are ready to try out the demo!
+
+When you run the code, make sure you press the button on the MoveHub, such that the led is blinking, which means its looking for a connection. Once you are successfuly connected to it, the led will turn blue. Every code need to start by using the connection block and finish with the disconnect block.
+
+When you want to run another code snippet, if you are getting the error that `Communication threads are not working`, manually stop the kernel and restart it, before you run the code.
+
 ## Contributing
 
 ### Development install
