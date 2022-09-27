@@ -15,7 +15,7 @@
 
 - Modified blocks structure [#5](https://github.com/QuantStack/jupyterlab-lego-boost/pull/5) ([@DenisaCG](https://github.com/DenisaCG))
 - Updated to `v0.2.1` of `jupyterlab-blockly` [#4](https://github.com/QuantStack/jupyterlab-lego-boost/pull/4) ([@DenisaCG](https://github.com/DenisaCG))
-- Updated to v0.2.0 of `jupyterlab-blockly`  [#3](https://github.com/QuantStack/jupyterlab-lego-boost/pull/3) ([@DenisaCG](https://github.com/DenisaCG))
+- Updated to v0.2.0 of `jupyterlab-blockly` [#3](https://github.com/QuantStack/jupyterlab-lego-boost/pull/3) ([@DenisaCG](https://github.com/DenisaCG))
 
 ### Documentation improvements
 
