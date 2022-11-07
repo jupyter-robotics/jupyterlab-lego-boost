@@ -301,6 +301,80 @@ Blockly.Blocks['lego_boost_sleep'] = {
     this.setHelpUrl('');
   }
 };
+
+Blockly.Blocks['lego_boost_led_change'] = {
+  init: function () {
+    this.appendValueInput('COLOR').appendField('Change LED color to');
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(lego_boost_color);
+    this.setTooltip('Change LED color.');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['lego_boost_led_off'] = {
+  init: function () {
+    this.appendDummyInput().appendField('Turn LED off');
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(lego_boost_color);
+    this.setTooltip('Turn LED off.');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['lego_boost_led_reset'] = {
+  init: function () {
+    this.appendDummyInput().appendField('Reset LED');
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(lego_boost_color);
+    this.setTooltip('Reset LED.');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['lego_boost_get_current_led_color'] = {
+  init: function () {
+    this.appendDummyInput().appendField('Get current LED color');
+    this.setOutput(true, null);
+    this.setColour(lego_boost_color);
+    this.setTooltip('Get current LED color.');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['lego_boost_set_led_brightness'] = {
+  init: function () {
+    this.appendValueInput('BRIGHTNESS')
+      .setCheck('Number')
+      .appendField('Set LED brightness to');
+    this.appendDummyInput().appendField('%');
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(lego_boost_color);
+    this.setTooltip(
+      'Set LED brightness procentage. 0% is off, 100% is full brightness.'
+    );
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['lego_boost_color_sensor'] = {
+  init: function () {
+    this.appendDummyInput().appendField('Color sensor');
+    this.setOutput(true, null);
+    this.setColour(lego_boost_color);
+    this.setTooltip('Color sensor.');
+    this.setHelpUrl('');
+  }
+};
+
 /*
  * Generators
  */
@@ -543,6 +617,61 @@ BlocklyPy['lego_boost_sleep'] = function (block) {
 
   var code = 'time.sleep(' + value_seconds + ')\n';
   return code;
+};
+
+Blockly.Blocks['lego_boost_led_change'].toplevel_init = `
+def hex_to_rgb(value):
+    value = value.lstrip('#')
+    return (tuple(int(value[i:i+2], 16) for i in (0, 2, 4)))
+
+`;
+
+BlocklyPy['lego_boost_led_change'] = function (block) {
+  var value_color = BlocklyPy.valueToCode(
+    block,
+    'COLOR',
+    BlocklyPy.ORDER_ATOMIC
+  );
+
+  var code =
+    'color = hex_to_rgb(' + value_color + ')\nhub.led.set_color(color)\n';
+  return code;
+};
+
+BlocklyPy['lego_boost_led_off'] = function (block) {
+  var code = 'hub.led.set_color((0, 0, 0))\n';
+  return code;
+};
+
+BlocklyPy['lego_boost_led_reset'] = function (block) {
+  var code =
+    "if hub != 'None':\n  hub.led.set_color((0, 0, 255))\nelse:\n  hub.led.set_color(0, 0, 0)\n";
+  return code;
+};
+
+Blockly.Blocks['lego_boost_get_current_led_color'].toplevel_init = `
+from pylgbst.peripherals import LEDRGB
+`;
+
+BlocklyPy['lego_boost_get_current_led_color'] = function (block) {
+  var code = 'hub.led.get_sensor_data(LEDRGB.MODE_RGB)\n';
+  return [code, BlocklyPy.ORDER_NONE];
+};
+
+BlocklyPy['lego_boost_set_led_brightness'] = function (block) {
+  var value_brightness = BlocklyPy.valueToCode(
+    block,
+    'BRIGHTNESS',
+    BlocklyPy.ORDER_ATOMIC
+  );
+
+  var code = 'hub.port_LED.set_brightness(' + value_brightness + ')\n';
+  return code;
+};
+
+BlocklyPy['lego_boost_color_sensor'] = function (block) {
+  var code = 'hub.vision_sensor.color\n';
+  return [code, BlocklyPy.ORDER_NONE];
 };
 
 // Creating a toolbox containing all the main blocks
@@ -974,7 +1103,31 @@ const TOOLBOX = {
         {
           kind: 'BLOCK',
           type: 'lego_boost_sleep'
+        },
+        {
+          kind: 'BLOCK',
+          type: 'lego_boost_led_change'
+        },
+        {
+          kind: 'BLOCK',
+          type: 'lego_boost_led_off'
+        },
+        {
+          kind: 'BLOCK',
+          type: 'lego_boost_led_reset'
+        },
+        {
+          kind: 'BLOCK',
+          type: 'lego_boost_get_current_led_color'
         }
+        // {
+        //   kind: 'BLOCK',
+        //   type: 'lego_boost_color_sensor'
+        // }
+        // {
+        //   kind: 'BLOCK',
+        //   type: 'lego_boost_set_led_brightness'
+        // }
       ]
     }
   ]
