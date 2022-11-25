@@ -481,19 +481,15 @@ Blockly.Blocks['lego_boost_set_sensor_color'] = {
           ['Black', 'COLOR_BLACK']
         ]),
         'COLOR'
-      )
-      ;
+      );
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(lego_boost_color);
-    this.setTooltip(
-      'Set the color of the sensor to one of the selected ones.'
-    );
+    this.setTooltip('Set the color of the sensor to one of the selected ones.');
     this.setHelpUrl('');
   }
 };
-
 
 Blockly.Blocks['lego_boost_button_state'] = {
   init: function () {
@@ -809,13 +805,12 @@ from pylgbst.hub import VisionSensor
 `;
 
 BlocklyPy['lego_boost_detect_color_and_distance'] = function (block) {
-  var value_time = BlocklyPy.valueToCode(
-    block,
-    'TIME',
-    BlocklyPy.ORDER_ATOMIC
-  );
+  var value_time = BlocklyPy.valueToCode(block, 'TIME', BlocklyPy.ORDER_ATOMIC);
 
-  var code = 'def callback(color, distance):\n    print("Color: %s / Distance: %s" % (color, distance))\nhub.vision_sensor.subscribe(callback, mode=VisionSensor.COLOR_DISTANCE_FLOAT)\ntime.sleep(' + value_time +')# play with sensor while it waits\nhub.vision_sensor.unsubscribe(callback)\n';
+  var code =
+    'def callback(color, distance):\n    print("Color: %s / Distance: %s" % (color, distance))\nhub.vision_sensor.subscribe(callback, mode=VisionSensor.COLOR_DISTANCE_FLOAT)\ntime.sleep(' +
+    value_time +
+    ')# play with sensor while it waits\nhub.vision_sensor.unsubscribe(callback)\n';
   return code;
 };
 
@@ -825,13 +820,12 @@ from pylgbst.hub import VisionSensor
 `;
 
 BlocklyPy['lego_boost_detect_color'] = function (block) {
-  var value_time = BlocklyPy.valueToCode(
-    block,
-    'TIME',
-    BlocklyPy.ORDER_ATOMIC
-  );
+  var value_time = BlocklyPy.valueToCode(block, 'TIME', BlocklyPy.ORDER_ATOMIC);
 
-  var code = 'def callback(color):\n    print("Color: %s" % (color))\nhub.vision_sensor.subscribe(callback, mode=VisionSensor.COLOR_INDEX)\ntime.sleep(' + value_time +')# play with sensor while it waits\nhub.vision_sensor.unsubscribe(callback)\n';
+  var code =
+    'def callback(color):\n    print("Color: %s" % (color))\nhub.vision_sensor.subscribe(callback, mode=VisionSensor.COLOR_INDEX)\ntime.sleep(' +
+    value_time +
+    ')# play with sensor while it waits\nhub.vision_sensor.unsubscribe(callback)\n';
   return code;
 };
 
@@ -841,13 +835,12 @@ from pylgbst.hub import VisionSensor
 `;
 
 BlocklyPy['lego_boost_detect_distance'] = function (block) {
-  var value_time = BlocklyPy.valueToCode(
-    block,
-    'TIME',
-    BlocklyPy.ORDER_ATOMIC
-  );
+  var value_time = BlocklyPy.valueToCode(block, 'TIME', BlocklyPy.ORDER_ATOMIC);
 
-  var code = 'def callback(distance):\n    print("Distance: %s" % (distance))\nhub.vision_sensor.subscribe(callback, mode=VisionSensor.DISTANCE_INCHES)\ntime.sleep(' + value_time +')# play with sensor while it waits\nhub.vision_sensor.unsubscribe(callback)\n';
+  var code =
+    'def callback(distance):\n    print("Distance: %s" % (distance))\nhub.vision_sensor.subscribe(callback, mode=VisionSensor.DISTANCE_INCHES)\ntime.sleep(' +
+    value_time +
+    ')# play with sensor while it waits\nhub.vision_sensor.unsubscribe(callback)\n';
   return code;
 };
 
@@ -857,13 +850,12 @@ from pylgbst.hub import VisionSensor
 `;
 
 BlocklyPy['lego_boost_detect_reflected_distance'] = function (block) {
-  var value_time = BlocklyPy.valueToCode(
-    block,
-    'TIME',
-    BlocklyPy.ORDER_ATOMIC
-  );
+  var value_time = BlocklyPy.valueToCode(block, 'TIME', BlocklyPy.ORDER_ATOMIC);
 
-  var code = 'def callback(reflected):\n    print("Reflected distance: %s" % (reflected))\nhub.vision_sensor.subscribe(callback, mode=VisionSensor.DISTANCE_REFLECTED)\ntime.sleep(' + value_time +')# play with sensor while it waits\nhub.vision_sensor.unsubscribe(callback)\n';
+  var code =
+    'def callback(reflected):\n    print("Reflected distance: %s" % (reflected))\nhub.vision_sensor.subscribe(callback, mode=VisionSensor.DISTANCE_REFLECTED)\ntime.sleep(' +
+    value_time +
+    ')# play with sensor while it waits\nhub.vision_sensor.unsubscribe(callback)\n';
   return code;
 };
 
@@ -873,13 +865,12 @@ from pylgbst.hub import VisionSensor
 `;
 
 BlocklyPy['lego_boost_detect_luminosity'] = function (block) {
-  var value_time = BlocklyPy.valueToCode(
-    block,
-    'TIME',
-    BlocklyPy.ORDER_ATOMIC
-  );
+  var value_time = BlocklyPy.valueToCode(block, 'TIME', BlocklyPy.ORDER_ATOMIC);
 
-  var code = 'def callback(luminosity):\n    print("Ambient light: %s" % (luminosity))\nhub.vision_sensor.subscribe(callback, mode=VisionSensor.AMBIENT_LIGHT)\ntime.sleep(' + value_time +')# play with sensor while it waits\nhub.vision_sensor.unsubscribe(callback)\n';
+  var code =
+    'def callback(luminosity):\n    print("Ambient light: %s" % (luminosity))\nhub.vision_sensor.subscribe(callback, mode=VisionSensor.AMBIENT_LIGHT)\ntime.sleep(' +
+    value_time +
+    ')# play with sensor while it waits\nhub.vision_sensor.unsubscribe(callback)\n';
   return code;
 };
 
@@ -889,13 +880,12 @@ from pylgbst.hub import VisionSensor
 `;
 
 BlocklyPy['lego_boost_detect_RGB'] = function (block) {
-  var value_time = BlocklyPy.valueToCode(
-    block,
-    'TIME',
-    BlocklyPy.ORDER_ATOMIC
-  );
+  var value_time = BlocklyPy.valueToCode(block, 'TIME', BlocklyPy.ORDER_ATOMIC);
 
-  var code = 'def callback(red, green, blue):\n    print("Color RGB: %s" % (red, green, blue))\nhub.vision_sensor.subscribe(callback, mode=VisionSensor.COLOR_RGB)\ntime.sleep(' + value_time +')# play with sensor while it waits\nhub.vision_sensor.unsubscribe(callback)\n';
+  var code =
+    'def callback(red, green, blue):\n    print("Color RGB: %s" % (red, green, blue))\nhub.vision_sensor.subscribe(callback, mode=VisionSensor.COLOR_RGB)\ntime.sleep(' +
+    value_time +
+    ')# play with sensor while it waits\nhub.vision_sensor.unsubscribe(callback)\n';
   return code;
 };
 
@@ -911,7 +901,8 @@ BlocklyPy['lego_boost_set_sensor_color'] = function (block) {
 };
 
 BlocklyPy['lego_boost_button_state'] = function (block) {
-  var code = 'def callback(is_pressed):\n    print("Btn pressed: %s" % is_pressed)\nhub.button.subscribe(callback)\ntime.sleep(1)\n';
+  var code =
+    'def callback(is_pressed):\n    print("Btn pressed: %s" % is_pressed)\nhub.button.subscribe(callback)\ntime.sleep(1)\n';
   return code;
 };
 
