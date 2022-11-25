@@ -365,12 +365,146 @@ Blockly.Blocks['lego_boost_set_led_brightness'] = {
   }
 };
 
-Blockly.Blocks['lego_boost_color_sensor'] = {
+Blockly.Blocks['lego_boost_detect_color_and_distance'] = {
   init: function () {
-    this.appendDummyInput().appendField('Color sensor');
-    this.setOutput(true, null);
+    this.appendValueInput('TIME')
+      .setCheck('Number')
+      .appendField('Detect the color and distance for');
+    this.appendDummyInput().appendField('seconds');
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
     this.setColour(lego_boost_color);
-    this.setTooltip('Color sensor.');
+    this.setTooltip(
+      'Use the color and distance sensor for detection, for a certain period of time.'
+    );
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['lego_boost_detect_color'] = {
+  init: function () {
+    this.appendValueInput('TIME')
+      .setCheck('Number')
+      .appendField('Detect the color for');
+    this.appendDummyInput().appendField('seconds');
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(lego_boost_color);
+    this.setTooltip(
+      'Use the color sensor for detection, for a certain period of time.'
+    );
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['lego_boost_detect_distance'] = {
+  init: function () {
+    this.appendValueInput('TIME')
+      .setCheck('Number')
+      .appendField('Detect the distance for');
+    this.appendDummyInput().appendField('seconds');
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(lego_boost_color);
+    this.setTooltip(
+      'Use the distance sensor for detection, for a certain period of time. Detect the distance until the object placed in front of the robot. The robot can detect a distance from 0 to 10 cm. The number is an integer.'
+    );
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['lego_boost_detect_reflected_distance'] = {
+  init: function () {
+    this.appendValueInput('TIME')
+      .setCheck('Number')
+      .appendField('Detect the reflected distance for');
+    this.appendDummyInput().appendField('seconds');
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(lego_boost_color);
+    this.setTooltip(
+      'Use the distance sensor for detection, for a certain period of time. Detect the reflected distance until the object placed in front of the robot. The result is a float number from 0 to 1.'
+    );
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['lego_boost_detect_luminosity'] = {
+  init: function () {
+    this.appendValueInput('TIME')
+      .setCheck('Number')
+      .appendField('Detect the RGB value for');
+    this.appendDummyInput().appendField('seconds');
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(lego_boost_color);
+    this.setTooltip(
+      'Use the distance sensor for detection, for a certain period of time. Detect the ambient RGB value of the object placed in front of the robot. '
+    );
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['lego_boost_detect_RGB'] = {
+  init: function () {
+    this.appendValueInput('TIME')
+      .setCheck('Number')
+      .appendField('Detect the ambient light value for');
+    this.appendDummyInput().appendField('seconds');
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(lego_boost_color);
+    this.setTooltip(
+      'Use the distance sensor for detection, for a certain period of time. Detect the ambient light value of the enviroment in front of the robot. The result is a float number from 0 to 1.'
+    );
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['lego_boost_set_sensor_color'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField('Set sensor light to color')
+      .appendField(
+        new Blockly.FieldDropdown([
+          ['Red', 'COLOR_RED'],
+          ['Blue', 'COLOR_BLUE'],
+          ['Cyan', 'COLOR_CYAN'],
+          ['Yellow', 'COLOR_YELLOW'],
+          ['White', 'COLOR_WHITE'],
+          ['Black', 'COLOR_BLACK']
+        ]),
+        'COLOR'
+      )
+      ;
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(lego_boost_color);
+    this.setTooltip(
+      'Set the color of the sensor to one of the selected ones.'
+    );
+    this.setHelpUrl('');
+  }
+};
+
+
+Blockly.Blocks['lego_boost_button_state'] = {
+  init: function () {
+    this.appendDummyInput().appendField('Print the button state');
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(lego_boost_color);
+    this.setTooltip(
+      'Output the state of the button. The state is 0 for not pressed and 1 or 2 for pressed.'
+    );
     this.setHelpUrl('');
   }
 };
@@ -669,9 +803,116 @@ BlocklyPy['lego_boost_set_led_brightness'] = function (block) {
   return code;
 };
 
-BlocklyPy['lego_boost_color_sensor'] = function (block) {
-  var code = 'hub.vision_sensor.color\n';
-  return [code, BlocklyPy.ORDER_NONE];
+Blockly.Blocks['lego_boost_detect_color_and_distance'].toplevel_init = `
+from pylgbst.hub import VisionSensor
+
+`;
+
+BlocklyPy['lego_boost_detect_color_and_distance'] = function (block) {
+  var value_time = BlocklyPy.valueToCode(
+    block,
+    'TIME',
+    BlocklyPy.ORDER_ATOMIC
+  );
+
+  var code = 'def callback(color, distance):\n    print("Color: %s / Distance: %s" % (color, distance))\nhub.vision_sensor.subscribe(callback, mode=VisionSensor.COLOR_DISTANCE_FLOAT)\ntime.sleep(' + value_time +')# play with sensor while it waits\nhub.vision_sensor.unsubscribe(callback)\n';
+  return code;
+};
+
+Blockly.Blocks['lego_boost_detect_color'].toplevel_init = `
+from pylgbst.hub import VisionSensor
+
+`;
+
+BlocklyPy['lego_boost_detect_color'] = function (block) {
+  var value_time = BlocklyPy.valueToCode(
+    block,
+    'TIME',
+    BlocklyPy.ORDER_ATOMIC
+  );
+
+  var code = 'def callback(color):\n    print("Color: %s" % (color))\nhub.vision_sensor.subscribe(callback, mode=VisionSensor.COLOR_INDEX)\ntime.sleep(' + value_time +')# play with sensor while it waits\nhub.vision_sensor.unsubscribe(callback)\n';
+  return code;
+};
+
+Blockly.Blocks['lego_boost_detect_distance'].toplevel_init = `
+from pylgbst.hub import VisionSensor
+
+`;
+
+BlocklyPy['lego_boost_detect_distance'] = function (block) {
+  var value_time = BlocklyPy.valueToCode(
+    block,
+    'TIME',
+    BlocklyPy.ORDER_ATOMIC
+  );
+
+  var code = 'def callback(distance):\n    print("Distance: %s" % (distance))\nhub.vision_sensor.subscribe(callback, mode=VisionSensor.DISTANCE_INCHES)\ntime.sleep(' + value_time +')# play with sensor while it waits\nhub.vision_sensor.unsubscribe(callback)\n';
+  return code;
+};
+
+Blockly.Blocks['lego_boost_detect_reflected_distance'].toplevel_init = `
+from pylgbst.hub import VisionSensor
+
+`;
+
+BlocklyPy['lego_boost_detect_reflected_distance'] = function (block) {
+  var value_time = BlocklyPy.valueToCode(
+    block,
+    'TIME',
+    BlocklyPy.ORDER_ATOMIC
+  );
+
+  var code = 'def callback(reflected):\n    print("Reflected distance: %s" % (reflected))\nhub.vision_sensor.subscribe(callback, mode=VisionSensor.DISTANCE_REFLECTED)\ntime.sleep(' + value_time +')# play with sensor while it waits\nhub.vision_sensor.unsubscribe(callback)\n';
+  return code;
+};
+
+Blockly.Blocks['lego_boost_detect_luminosity'].toplevel_init = `
+from pylgbst.hub import VisionSensor
+
+`;
+
+BlocklyPy['lego_boost_detect_luminosity'] = function (block) {
+  var value_time = BlocklyPy.valueToCode(
+    block,
+    'TIME',
+    BlocklyPy.ORDER_ATOMIC
+  );
+
+  var code = 'def callback(luminosity):\n    print("Ambient light: %s" % (luminosity))\nhub.vision_sensor.subscribe(callback, mode=VisionSensor.AMBIENT_LIGHT)\ntime.sleep(' + value_time +')# play with sensor while it waits\nhub.vision_sensor.unsubscribe(callback)\n';
+  return code;
+};
+
+Blockly.Blocks['lego_boost_detect_RGB'].toplevel_init = `
+from pylgbst.hub import VisionSensor
+
+`;
+
+BlocklyPy['lego_boost_detect_RGB'] = function (block) {
+  var value_time = BlocklyPy.valueToCode(
+    block,
+    'TIME',
+    BlocklyPy.ORDER_ATOMIC
+  );
+
+  var code = 'def callback(red, green, blue):\n    print("Color RGB: %s" % (red, green, blue))\nhub.vision_sensor.subscribe(callback, mode=VisionSensor.COLOR_RGB)\ntime.sleep(' + value_time +')# play with sensor while it waits\nhub.vision_sensor.unsubscribe(callback)\n';
+  return code;
+};
+
+Blockly.Blocks['lego_boost_set_sensor_color'].toplevel_init = `
+from pylgbst.hub import VisionSensor, COLOR_BLUE, COLOR_CYAN, COLOR_YELLOW, COLOR_RED, COLOR_WHITE, COLOR_BLACK
+
+`;
+
+BlocklyPy['lego_boost_set_sensor_color'] = function (block) {
+  var dropdown_color_value = block.getFieldValue('COLOR');
+  var code = 'hub.vision_sensor.set_color(' + dropdown_color_value + ')\n';
+  return code;
+};
+
+BlocklyPy['lego_boost_button_state'] = function (block) {
+  var code = 'def callback(is_pressed):\n    print("Btn pressed: %s" % is_pressed)\nhub.button.subscribe(callback)\ntime.sleep(1)\n';
+  return code;
 };
 
 // Creating a toolbox containing all the main blocks
@@ -1119,11 +1360,39 @@ const TOOLBOX = {
         {
           kind: 'BLOCK',
           type: 'lego_boost_get_current_led_color'
+        },
+        {
+          kind: 'BLOCK',
+          type: 'lego_boost_detect_color_and_distance'
+        },
+        {
+          kind: 'BLOCK',
+          type: 'lego_boost_detect_color'
+        },
+        {
+          kind: 'BLOCK',
+          type: 'lego_boost_detect_distance'
+        },
+        {
+          kind: 'BLOCK',
+          type: 'lego_boost_detect_reflected_distance'
+        },
+        {
+          kind: 'BLOCK',
+          type: 'lego_boost_detect_luminosity'
+        },
+        {
+          kind: 'BLOCK',
+          type: 'lego_boost_detect_RGB'
+        },
+        {
+          kind: 'BLOCK',
+          type: 'lego_boost_set_sensor_color'
+        },
+        {
+          kind: 'BLOCK',
+          type: 'lego_boost_button_state'
         }
-        // {
-        //   kind: 'BLOCK',
-        //   type: 'lego_boost_color_sensor'
-        // }
         // {
         //   kind: 'BLOCK',
         //   type: 'lego_boost_set_led_brightness'
