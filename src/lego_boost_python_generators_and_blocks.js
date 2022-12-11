@@ -505,6 +505,89 @@ Blockly.Blocks['lego_boost_button_state'] = {
   }
 };
 
+Blockly.Blocks['lego_boost_position_state_detect'] = {
+  init: function () {
+    this.appendValueInput('TIME')
+      .setCheck('Number')
+      .appendField('Detect the 2-axis position state for');
+    this.appendDummyInput().appendField('seconds');
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(lego_boost_color);
+    this.setTooltip(
+      'Output the postion of the robot according to a 2-axis simple detect.'
+    );
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['lego_boost_position_2axis_angle'] = {
+  init: function () {
+    this.appendValueInput('TIME')
+      .setCheck('Number')
+      .appendField('Detect the 2-axis position state in degrees for');
+    this.appendDummyInput().appendField('seconds');
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(lego_boost_color);
+    this.setTooltip(
+      'Output the postion of the robot according to a 2-axis detect. Returns 2-axis roll and pitch values.'
+    );
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['lego_boost_position_3_axis_state_detect'] = {
+  init: function () {
+    this.appendValueInput('TIME')
+      .setCheck('Number')
+      .appendField('Detect the 3-axis position state for');
+    this.appendDummyInput().appendField('seconds');
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(lego_boost_color);
+    this.setTooltip(
+      'Output the postion of the robot according to a 3-axis simple detect.'
+    );
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['lego_boost_position_3_axis_angle'] = {
+  init: function () {
+    this.appendValueInput('TIME')
+      .setCheck('Number')
+      .appendField('Detect the 3-axis position state in degrees for');
+    this.appendDummyInput().appendField('seconds');
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(lego_boost_color);
+    this.setTooltip(
+      'Output the postion of the robot according to a 3-axis detect. Returns 3-axis roll, pitch and yaw values.'
+    );
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.Blocks['lego_boost_bumps_detect'] = {
+  init: function () {
+    this.appendValueInput('TIME')
+      .setCheck('Number')
+      .appendField('Detect the bumps for');
+    this.appendDummyInput().appendField('seconds');
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(lego_boost_color);
+    this.setTooltip('Detect the bumps.');
+    this.setHelpUrl('');
+  }
+};
+
 /*
  * Generators
  */
@@ -903,6 +986,56 @@ BlocklyPy['lego_boost_set_sensor_color'] = function (block) {
 BlocklyPy['lego_boost_button_state'] = function (block) {
   var code =
     'def callback(is_pressed):\n    print("Btn pressed: %s" % is_pressed)\nhub.button.subscribe(callback)\ntime.sleep(1)\n';
+  return code;
+};
+
+BlocklyPy['lego_boost_position_state_detect'] = function (block) {
+  var value_time = BlocklyPy.valueToCode(block, 'TIME', BlocklyPy.ORDER_ATOMIC);
+
+  var code =
+    'def callback(state):\n    print("2-axis state: %s" % (state))\nhub.tilt_sensor.subscribe(callback, mode=TiltSensor.MODE_2AXIS_SIMPLE)\ntime.sleep(' +
+    value_time +
+    ')# play with sensor while it waits\nhub.tilt_sensor.unsubscribe(callback)\n';
+  return code;
+};
+
+BlocklyPy['lego_boost_position_2axis_angle'] = function (block) {
+  var value_time = BlocklyPy.valueToCode(block, 'TIME', BlocklyPy.ORDER_ATOMIC);
+
+  var code =
+    'def callback(roll, pitch):\n    print("Roll: %s / Pitch: %s" % (roll, pitch))\nhub.tilt_sensor.subscribe(callback, mode=TiltSensor.MODE_2AXIS_ANGLE)\ntime.sleep(' +
+    value_time +
+    ')# play with sensor while it waits\nhub.tilt_sensor.unsubscribe(callback)\n';
+  return code;
+};
+
+BlocklyPy['lego_boost_position_3_axis_state_detect'] = function (block) {
+  var value_time = BlocklyPy.valueToCode(block, 'TIME', BlocklyPy.ORDER_ATOMIC);
+
+  var code =
+    'def callback(state):\n    print("3-axis state: %s" % (state))\nhub.tilt_sensor.subscribe(callback, mode=TiltSensor.MODE_3AXIS_SIMPLE)\ntime.sleep(' +
+    value_time +
+    ')# play with sensor while it waits\nhub.tilt_sensor.unsubscribe(callback)\n';
+  return code;
+};
+
+BlocklyPy['lego_boost_position_3_axis_angle'] = function (block) {
+  var value_time = BlocklyPy.valueToCode(block, 'TIME', BlocklyPy.ORDER_ATOMIC);
+
+  var code =
+    'def callback(roll, pitch, yaw):\n    print("Roll: %s / Pitch: %s / Yaw: %s" % (roll, pitch, yaw))\nhub.tilt_sensor.subscribe(callback, mode=TiltSensor.MODE_2AXIS_ACCEL)\ntime.sleep(' +
+    value_time +
+    ')# play with sensor while it waits\nhub.tilt_sensor.unsubscribe(callback)\n';
+  return code;
+};
+
+BlocklyPy['lego_boost_bumps_detect'] = function (block) {
+  var value_time = BlocklyPy.valueToCode(block, 'TIME', BlocklyPy.ORDER_ATOMIC);
+
+  var code =
+    'def callback(state):\n    print("Bumps state: %s" % (state))\nhub.tilt_sensor.subscribe(callback, mode=TiltSensor.MODE_IMPACT_COUNT)\ntime.sleep(' +
+    value_time +
+    ')# play with sensor while it waits\nhub.tilt_sensor.unsubscribe(callback)\n';
   return code;
 };
 
@@ -1383,6 +1516,26 @@ const TOOLBOX = {
         {
           kind: 'BLOCK',
           type: 'lego_boost_button_state'
+        },
+        {
+          kind: 'BLOCK',
+          type: 'lego_boost_position_state_detect'
+        },
+        {
+          kind: 'BLOCK',
+          type: 'lego_boost_position_2axis_angle'
+        },
+        {
+          kind: 'BLOCK',
+          type: 'lego_boost_position_3_axis_state_detect'
+        },
+        {
+          kind: 'BLOCK',
+          type: 'lego_boost_position_3_axis_angle'
+        },
+        {
+          kind: 'BLOCK',
+          type: 'lego_boost_bumps_detect'
         }
         // {
         //   kind: 'BLOCK',
