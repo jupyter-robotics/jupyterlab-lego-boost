@@ -433,7 +433,7 @@ Blockly.Blocks['lego_boost_detect_reflected_distance'] = {
   }
 };
 
-Blockly.Blocks['lego_boost_detect_luminosity'] = {
+Blockly.Blocks['lego_boost_detect_RGB'] = {
   init: function () {
     this.appendValueInput('TIME')
       .setCheck('Number')
@@ -450,7 +450,7 @@ Blockly.Blocks['lego_boost_detect_luminosity'] = {
   }
 };
 
-Blockly.Blocks['lego_boost_detect_RGB'] = {
+Blockly.Blocks['lego_boost_detect_luminosity'] = {
   init: function () {
     this.appendValueInput('TIME')
       .setCheck('Number')
