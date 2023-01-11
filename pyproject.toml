@@ -15,3 +15,8 @@ npm = ["jlpm"]
 
 [tool.check-manifest]
 ignore = ["jupyterlab_lego_boost/labextension/**", "yarn.lock", ".*", "package-lock.json"]
+
+[tool.jupyter-releaser.hooks]
+before-build-npm = ["python -m pip install jupyterlab~=3.4", "jlpm"]
+before-build-python = ["jlpm clean:all"]
+
