@@ -88,16 +88,5 @@
   "jupyterlab": {
     "extension": true,
     "outputDir": "jupyterlab_lego_boost/labextension"
-  },
-  "jupyter-releaser": {
-    "hooks": {
-      "before-build-npm": [
-        "python -m pip install jupyterlab",
-        "jlpm"
-      ],
-      "before-build-python": [
-        "jlpm clean:all"
-      ]
-    }
   }
 }
