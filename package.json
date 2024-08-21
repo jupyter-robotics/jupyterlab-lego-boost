@@ -10,14 +10,14 @@
     "robot",
     "Boost"
   ],
-  "homepage": "https://github.com/QuantStack/jupyterlab-lego-boost",
+  "homepage": "https://github.com/jupyter-robotics/jupyterlab-lego-boost",
   "bugs": {
-    "url": "https://github.com/QuantStack/jupyterlab-lego-boost/issues"
+    "url": "https://github.com/jupyter-robotics/jupyterlab-lego-boost/issues"
   },
   "license": "BSD-3-Clause",
   "author": {
     "name": "Denisa Checiu",
-    "email": "me@test.com"
+    "email": "denisa.checiu@quantstack.net"
   },
   "files": [
     "lib/**/*.{d.ts,eot,gif,html,jpg,js,js.map,json,png,svg,woff2,ttf}",
@@ -28,7 +28,7 @@
   "style": "style/index.css",
   "repository": {
     "type": "git",
-    "url": "https://github.com/QuantStack/jupyterlab-lego-boost.git"
+    "url": "https://github.com/jupyter-robotics/jupyterlab-lego-boost.git"
   },
   "scripts": {
     "build": "jlpm build:lib && jlpm build:labextension:dev",
