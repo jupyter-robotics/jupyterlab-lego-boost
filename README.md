@@ -18,15 +18,13 @@ Link: https://www.lego.com/en-de/product/boost-creative-toolbox-17101
 
 ## Requirements
 
-- JupyterLab == 3.4
+- JupyterLab >= 4.0.0
 
 ## Install
 
 To install the extension, execute:
 
 ```bash
-micromamba create -n boost -c conda-forge python=3.9 nodejs=16 yarn jupyterlab=3.4 jupyterlab-language-pack-es-ES jupyterlab-language-pack-fr-FR ipykernel xeus-python xeus-lua
-micromamba activate boost
 pip install jupyterlab-lego-boost
 ```
 
@@ -59,7 +57,7 @@ The `jlpm` command is JupyterLab's pinned version of
 `yarn` or `npm` in lieu of `jlpm` below.
 
 ```bash
-micromamba create -n boost -c conda-forge python=3.9 nodejs=16 yarn jupyterlab=3.4 jupyterlab-language-pack-es-ES jupyterlab-language-pack-fr-FR ipykernel xeus-python xeus-lua
+micromamba create -n boost -c conda-forge python nodejs jupyterlab jupyterlab-language-pack-es-ES jupyterlab-language-pack-fr-FR ipykernel xeus-python xeus-lua
 micromamba activate boost
 # Clone the repo to your local environment
 # Change directory to the jupyterlab-lego-boost directory

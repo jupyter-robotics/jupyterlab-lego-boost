@@ -2,4 +2,7 @@ node_modules
 **/node_modules
 **/lib
 **/package.json
+!/package.json
 jupyterlab_lego_boost
+
+CHANGELOG.md

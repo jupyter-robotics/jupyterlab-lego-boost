@@ -1,31 +1,42 @@
 [build-system]
-requires = ["hatchling>=1.4.0", "hatch-nodejs-version", "jupyterlab~=3.4"]
+requires = ["hatchling>=1.5.0", "hatch-nodejs-version>=0.3.2", "jupyterlab>=4.0.0,<5"]
 build-backend = "hatchling.build"
 
 [project]
-name = "jupyterlab-lego-boost"
+name = "jupyterlab_lego_boost"
 readme = "README.md"
 license = { file = "LICENSE" }
-requires-python = ">=3.7"
-dependencies = ['jupyterlab-blockly>=0.2.1,<0.3']
+requires-python = ">=3.8"
 classifiers = [
+    "Framework :: Jupyter",
+    "Framework :: Jupyter :: JupyterLab",
+    "Framework :: Jupyter :: JupyterLab :: 4",
+    "Framework :: Jupyter :: JupyterLab :: Extensions",
+    "Framework :: Jupyter :: JupyterLab :: Extensions :: Prebuilt",
     "License :: OSI Approved :: BSD License",
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.7",
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
-    "Framework :: Jupyter",
-    "Framework :: Jupyter :: JupyterLab",
-    "Framework :: Jupyter :: JupyterLab :: 3",
-    "Framework :: Jupyter :: JupyterLab :: Extensions",
-    "Framework :: Jupyter :: JupyterLab :: Extensions :: Prebuilt",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "jupyterlab-blockly>=0.3.2,<0.4"
 ]
 dynamic = ["version", "description", "authors", "urls", "keywords"]
 
 [project.optional-dependencies]
-env = ["bleak", "pylgbst"]
+env = [
+    "bleak",
+    "pylgbst"
+]
+dev = [
+    "click",
+    "pre-commit",
+    "jupyter_releaser"
+]
 
 [tool.hatch.version]
 source = "nodejs"
@@ -34,12 +45,12 @@ source = "nodejs"
 fields = ["description", "authors", "urls"]
 
 [tool.hatch.build.targets.sdist]
-artifacts = ["jupyterlab_lego_boost/labextension"]
-exclude = [".github", "binder"]
+artifacts = ["/jupyterlab_lego_boost/labextension"]
+exclude = ["/.github", "/binder", "node_modules"]
 
 [tool.hatch.build.targets.wheel.shared-data]
+"jupyterlab_lego_boost/labextension" = "share/jupyter/labextensions/jupyterlab-lego-boost"
 "install.json" = "share/jupyter/labextensions/jupyterlab-lego-boost/install.json"
-"jupyterlab_lego_boost/labextension" = "share/jupyter/labextensions/jupyterlab-lego-boost/"
 
 [tool.hatch.build.hooks.version]
 path = "jupyterlab_lego_boost/_version.py"
@@ -47,7 +58,10 @@ path = "jupyterlab_lego_boost/_version.py"
 [tool.hatch.build.hooks.jupyter-builder]
 dependencies = ["hatch-jupyter-builder>=0.5"]
 build-function = "hatch_jupyter_builder.npm_builder"
-ensured-targets = ["jupyterlab_lego_boost/labextension/static/style.js", "jupyterlab_lego_boost/labextension/package.json"]
+ensured-targets = [
+    "jupyterlab_lego_boost/labextension/static/style.js",
+    "jupyterlab_lego_boost/labextension/package.json",
+]
 skip-if-exists = ["jupyterlab_lego_boost/labextension/static/style.js"]
 
 [tool.hatch.build.hooks.jupyter-builder.build-kwargs]
@@ -64,7 +78,11 @@ build_dir = "jupyterlab_lego_boost/labextension"
 version_cmd = "hatch version"
 
 [tool.jupyter-releaser.hooks]
-before-build-npm = ["python -m pip install jupyterlab~=3.4", "jlpm", "jlpm build:prod"]
+before-build-npm = [
+    "python -m pip install 'jupyterlab>=4.0.0,<5'",
+    "jlpm",
+    "jlpm build:prod"
+]
 before-build-python = ["jlpm clean:all"]
 
 [tool.check-wheel-contents]
