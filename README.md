@@ -1,6 +1,6 @@
 # jupyterlab-lego-boost
 
-[![Github Actions Status](https://github.com/QuantStack/jupyterlab-lego-boost/workflows/Build/badge.svg)](https://github.com/QuantStack/jupyterlab-lego-boost/actions/workflows/build.yml)[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/QuantStack/jupyterlab-lego-boost/main?urlpath=lab)
+[![Github Actions Status](https://github.com/jupyter-robotics/jupyterlab-lego-boost/workflows/Build/badge.svg)](https://github.com/jupyter-robotics/jupyterlab-lego-boost/actions/workflows/build.yml)[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/jupyter-robotics/jupyterlab-lego-boost/main?urlpath=lab)
 Blockly extension for JupyterLab to control the Lego Boost
 
 ## Blockly
