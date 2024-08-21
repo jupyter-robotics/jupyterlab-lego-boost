@@ -34,7 +34,6 @@ env = [
 ]
 dev = [
     "click",
-    "pre-commit",
     "jupyter_releaser"
 ]
 
