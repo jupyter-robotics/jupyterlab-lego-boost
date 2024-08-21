@@ -25,7 +25,7 @@ SOFTWARE.
 */
 
 import * as Blockly from 'blockly';
-import BlocklyPy from 'blockly/python';
+import { pythonGenerator } from 'blockly/python';
 
 var lego_boost_color = '#550a8a';
 
@@ -592,11 +592,11 @@ Blockly.Blocks['lego_boost_bumps_detect'] = {
  * Generators
  */
 
-BlocklyPy['lego_boost_connect'] = function (block) {
-  var value_bluetooth_address = BlocklyPy.valueToCode(
+pythonGenerator.forBlock['lego_boost_connect'] = function (block) {
+  var value_bluetooth_address = pythonGenerator.valueToCode(
     block,
     'BLUETOOTH_ADDRESS',
-    BlocklyPy.ORDER_ATOMIC
+    pythonGenerator.ORDER_ATOMIC
   );
 
   var code =
@@ -613,13 +613,17 @@ import time
 
 `;
 
-BlocklyPy['lego_boost_movement_forward'] = function (block) {
-  var value_time = BlocklyPy.valueToCode(block, 'TIME', BlocklyPy.ORDER_ATOMIC);
+pythonGenerator.forBlock['lego_boost_movement_forward'] = function (block) {
+  var value_time = pythonGenerator.valueToCode(
+    block,
+    'TIME',
+    pythonGenerator.ORDER_ATOMIC
+  );
 
-  var value_speed = BlocklyPy.valueToCode(
+  var value_speed = pythonGenerator.valueToCode(
     block,
     'SPEED',
-    BlocklyPy.ORDER_ATOMIC
+    pythonGenerator.ORDER_ATOMIC
   );
 
   var code =
@@ -633,13 +637,17 @@ BlocklyPy['lego_boost_movement_forward'] = function (block) {
   return code;
 };
 
-BlocklyPy['lego_boost_movement_backwards'] = function (block) {
-  var value_time = BlocklyPy.valueToCode(block, 'TIME', BlocklyPy.ORDER_ATOMIC);
+pythonGenerator.forBlock['lego_boost_movement_backwards'] = function (block) {
+  var value_time = pythonGenerator.valueToCode(
+    block,
+    'TIME',
+    pythonGenerator.ORDER_ATOMIC
+  );
 
-  var value_speed = BlocklyPy.valueToCode(
+  var value_speed = pythonGenerator.valueToCode(
     block,
     'SPEED',
-    BlocklyPy.ORDER_ATOMIC
+    pythonGenerator.ORDER_ATOMIC
   );
 
   var code =
@@ -653,73 +661,97 @@ BlocklyPy['lego_boost_movement_backwards'] = function (block) {
   return code;
 };
 
-BlocklyPy['lego_boost_movement_rotate_right'] = function (block) {
+pythonGenerator.forBlock['lego_boost_movement_rotate_right'] = function (
+  block
+) {
   var code = 'hub.motor_A.angled(540, 1)\n';
   return code;
 };
 
-BlocklyPy['lego_boost_movement_rotate_left'] = function (block) {
+pythonGenerator.forBlock['lego_boost_movement_rotate_left'] = function (block) {
   var code = 'hub.motor_B.angled(540, 1)\n';
   return code;
 };
 
-BlocklyPy['lego_boost_movement_rotate_180_left'] = function (block) {
+pythonGenerator.forBlock['lego_boost_movement_rotate_180_left'] = function (
+  block
+) {
   var code = 'hub.motor_B.angled(1080, 1)\n';
   return code;
 };
 
-BlocklyPy['lego_boost_movement_rotate_180_right'] = function (block) {
+pythonGenerator.forBlock['lego_boost_movement_rotate_180_right'] = function (
+  block
+) {
   var code = 'hub.motor_A.angled(1080, 1)\n';
   return code;
 };
 
-BlocklyPy['lego_boost_movement_rotate_360_left'] = function (block) {
+pythonGenerator.forBlock['lego_boost_movement_rotate_360_left'] = function (
+  block
+) {
   var code = 'hub.motor_B.timed(1.7, 1)\n';
   return code;
 };
 
-BlocklyPy['lego_boost_movement_rotate_360_right'] = function (block) {
+pythonGenerator.forBlock['lego_boost_movement_rotate_360_right'] = function (
+  block
+) {
   var code = 'hub.motor_A.timed(1.7, 1)\n';
   return code;
 };
 
-BlocklyPy['lego_boost_movement_turn_right_timed'] = function (block) {
-  var value_time = BlocklyPy.valueToCode(block, 'TIME', BlocklyPy.ORDER_ATOMIC);
+pythonGenerator.forBlock['lego_boost_movement_turn_right_timed'] = function (
+  block
+) {
+  var value_time = pythonGenerator.valueToCode(
+    block,
+    'TIME',
+    pythonGenerator.ORDER_ATOMIC
+  );
 
-  var value_speed = BlocklyPy.valueToCode(
+  var value_speed = pythonGenerator.valueToCode(
     block,
     'SPEED',
-    BlocklyPy.ORDER_ATOMIC
+    pythonGenerator.ORDER_ATOMIC
   );
 
   var code = 'hub.motor_A.timed(' + value_time + ', ' + value_speed + ')\n';
   return code;
 };
 
-BlocklyPy['lego_boost_movement_turn_left_timed'] = function (block) {
-  var value_time = BlocklyPy.valueToCode(block, 'TIME', BlocklyPy.ORDER_ATOMIC);
+pythonGenerator.forBlock['lego_boost_movement_turn_left_timed'] = function (
+  block
+) {
+  var value_time = pythonGenerator.valueToCode(
+    block,
+    'TIME',
+    pythonGenerator.ORDER_ATOMIC
+  );
 
-  var value_speed = BlocklyPy.valueToCode(
+  var value_speed = pythonGenerator.valueToCode(
     block,
     'SPEED',
-    BlocklyPy.ORDER_ATOMIC
+    pythonGenerator.ORDER_ATOMIC
   );
 
   var code = 'hub.motor_B.timed(' + value_time + ', ' + value_speed + ')\n';
   return code;
 };
 
-BlocklyPy['lego_boost_movement_turn_right_angled'] = function (block) {
-  var value_angle = BlocklyPy.valueToCode(
+pythonGenerator.forBlock['lego_boost_movement_turn_right_angled'] = function (
+  block
+) {
+  var value_angle = pythonGenerator.valueToCode(
     block,
     'ANGLE',
-    BlocklyPy.ORDER_ATOMIC
+    pythonGenerator.ORDER_ATOMIC
   );
 
-  var value_speed = BlocklyPy.valueToCode(
+  var value_speed = pythonGenerator.valueToCode(
     block,
     'SPEED',
-    BlocklyPy.ORDER_ATOMIC
+    pythonGenerator.ORDER_ATOMIC
   );
 
   var code =
@@ -727,17 +759,19 @@ BlocklyPy['lego_boost_movement_turn_right_angled'] = function (block) {
   return code;
 };
 
-BlocklyPy['lego_boost_movement_turn_left_angled'] = function (block) {
-  var value_angle = BlocklyPy.valueToCode(
+pythonGenerator.forBlock['lego_boost_movement_turn_left_angled'] = function (
+  block
+) {
+  var value_angle = pythonGenerator.valueToCode(
     block,
     'ANGLE',
-    BlocklyPy.ORDER_ATOMIC
+    pythonGenerator.ORDER_ATOMIC
   );
 
-  var value_speed = BlocklyPy.valueToCode(
+  var value_speed = pythonGenerator.valueToCode(
     block,
     'SPEED',
-    BlocklyPy.ORDER_ATOMIC
+    pythonGenerator.ORDER_ATOMIC
   );
 
   var code =
@@ -745,19 +779,23 @@ BlocklyPy['lego_boost_movement_turn_left_angled'] = function (block) {
   return code;
 };
 
-BlocklyPy['lego_boost_move_motor_ab_timed'] = function (block) {
-  var value_time = BlocklyPy.valueToCode(block, 'TIME', BlocklyPy.ORDER_ATOMIC);
-
-  var value_speed_a = BlocklyPy.valueToCode(
+pythonGenerator.forBlock['lego_boost_move_motor_ab_timed'] = function (block) {
+  var value_time = pythonGenerator.valueToCode(
     block,
-    'SPEED_A',
-    BlocklyPy.ORDER_ATOMIC
+    'TIME',
+    pythonGenerator.ORDER_ATOMIC
   );
 
-  var value_speed_b = BlocklyPy.valueToCode(
+  var value_speed_a = pythonGenerator.valueToCode(
+    block,
+    'SPEED_A',
+    pythonGenerator.ORDER_ATOMIC
+  );
+
+  var value_speed_b = pythonGenerator.valueToCode(
     block,
     'SPEED_B',
-    BlocklyPy.ORDER_ATOMIC
+    pythonGenerator.ORDER_ATOMIC
   );
 
   var code =
@@ -771,23 +809,23 @@ BlocklyPy['lego_boost_move_motor_ab_timed'] = function (block) {
   return code;
 };
 
-BlocklyPy['lego_boost_move_motor_ab_angled'] = function (block) {
-  var value_angle = BlocklyPy.valueToCode(
+pythonGenerator.forBlock['lego_boost_move_motor_ab_angled'] = function (block) {
+  var value_angle = pythonGenerator.valueToCode(
     block,
     'ANGLE',
-    BlocklyPy.ORDER_ATOMIC
+    pythonGenerator.ORDER_ATOMIC
   );
 
-  var value_speed_a = BlocklyPy.valueToCode(
+  var value_speed_a = pythonGenerator.valueToCode(
     block,
     'SPEED_A',
-    BlocklyPy.ORDER_ATOMIC
+    pythonGenerator.ORDER_ATOMIC
   );
 
-  var value_speed_b = BlocklyPy.valueToCode(
+  var value_speed_b = pythonGenerator.valueToCode(
     block,
     'SPEED_B',
-    BlocklyPy.ORDER_ATOMIC
+    pythonGenerator.ORDER_ATOMIC
   );
 
   var code =
@@ -800,32 +838,32 @@ BlocklyPy['lego_boost_move_motor_ab_angled'] = function (block) {
   return code;
 };
 
-BlocklyPy['lego_boost_start_speed'] = function (block) {
-  var value_speed = BlocklyPy.valueToCode(
+pythonGenerator.forBlock['lego_boost_start_speed'] = function (block) {
+  var value_speed = pythonGenerator.valueToCode(
     block,
     'SPEED',
-    BlocklyPy.ORDER_ATOMIC
+    pythonGenerator.ORDER_ATOMIC
   );
 
   var code = 'hub.motor_external.start_speed(' + value_speed + ')\n';
   return code;
 };
 
-BlocklyPy['lego_boost_stop_motors'] = function (block) {
+pythonGenerator.forBlock['lego_boost_stop_motors'] = function (block) {
   var code = 'hub.motor_external.stop()\n';
   return code;
 };
 
-BlocklyPy['lego_boost_disconnect'] = function (block) {
+pythonGenerator.forBlock['lego_boost_disconnect'] = function (block) {
   var code = 'hub.disconnect()\n';
   return code;
 };
 
-BlocklyPy['lego_boost_sleep'] = function (block) {
-  var value_seconds = BlocklyPy.valueToCode(
+pythonGenerator.forBlock['lego_boost_sleep'] = function (block) {
+  var value_seconds = pythonGenerator.valueToCode(
     block,
     'SECONDS',
-    BlocklyPy.ORDER_ATOMIC
+    pythonGenerator.ORDER_ATOMIC
   );
 
   var code = 'time.sleep(' + value_seconds + ')\n';
@@ -839,11 +877,11 @@ def hex_to_rgb(value):
 
 `;
 
-BlocklyPy['lego_boost_led_change'] = function (block) {
-  var value_color = BlocklyPy.valueToCode(
+pythonGenerator.forBlock['lego_boost_led_change'] = function (block) {
+  var value_color = pythonGenerator.valueToCode(
     block,
     'COLOR',
-    BlocklyPy.ORDER_ATOMIC
+    pythonGenerator.ORDER_ATOMIC
   );
 
   var code =
@@ -851,12 +889,12 @@ BlocklyPy['lego_boost_led_change'] = function (block) {
   return code;
 };
 
-BlocklyPy['lego_boost_led_off'] = function (block) {
+pythonGenerator.forBlock['lego_boost_led_off'] = function (block) {
   var code = 'hub.led.set_color((0, 0, 0))\n';
   return code;
 };
 
-BlocklyPy['lego_boost_led_reset'] = function (block) {
+pythonGenerator.forBlock['lego_boost_led_reset'] = function (block) {
   var code =
     "if hub != 'None':\n  hub.led.set_color((0, 0, 255))\nelse:\n  hub.led.set_color(0, 0, 0)\n";
   return code;
@@ -866,16 +904,18 @@ Blockly.Blocks['lego_boost_get_current_led_color'].toplevel_init = `
 from pylgbst.peripherals import LEDRGB
 `;
 
-BlocklyPy['lego_boost_get_current_led_color'] = function (block) {
+pythonGenerator.forBlock['lego_boost_get_current_led_color'] = function (
+  block
+) {
   var code = 'hub.led.get_sensor_data(LEDRGB.MODE_RGB)\n';
-  return [code, BlocklyPy.ORDER_NONE];
+  return [code, pythonGenerator.ORDER_NONE];
 };
 
-BlocklyPy['lego_boost_set_led_brightness'] = function (block) {
-  var value_brightness = BlocklyPy.valueToCode(
+pythonGenerator.forBlock['lego_boost_set_led_brightness'] = function (block) {
+  var value_brightness = pythonGenerator.valueToCode(
     block,
     'BRIGHTNESS',
-    BlocklyPy.ORDER_ATOMIC
+    pythonGenerator.ORDER_ATOMIC
   );
 
   var code = 'hub.port_LED.set_brightness(' + value_brightness + ')\n';
@@ -887,8 +927,14 @@ from pylgbst.hub import VisionSensor
 
 `;
 
-BlocklyPy['lego_boost_detect_color_and_distance'] = function (block) {
-  var value_time = BlocklyPy.valueToCode(block, 'TIME', BlocklyPy.ORDER_ATOMIC);
+pythonGenerator.forBlock['lego_boost_detect_color_and_distance'] = function (
+  block
+) {
+  var value_time = pythonGenerator.valueToCode(
+    block,
+    'TIME',
+    pythonGenerator.ORDER_ATOMIC
+  );
 
   var code =
     'def callback(color, distance):\n    print("Color: %s / Distance: %s" % (color, distance))\nhub.vision_sensor.subscribe(callback, mode=VisionSensor.COLOR_DISTANCE_FLOAT)\ntime.sleep(' +
@@ -902,8 +948,12 @@ from pylgbst.hub import VisionSensor
 
 `;
 
-BlocklyPy['lego_boost_detect_color'] = function (block) {
-  var value_time = BlocklyPy.valueToCode(block, 'TIME', BlocklyPy.ORDER_ATOMIC);
+pythonGenerator.forBlock['lego_boost_detect_color'] = function (block) {
+  var value_time = pythonGenerator.valueToCode(
+    block,
+    'TIME',
+    pythonGenerator.ORDER_ATOMIC
+  );
 
   var code =
     'def callback(color):\n    print("Color: %s" % (color))\nhub.vision_sensor.subscribe(callback, mode=VisionSensor.COLOR_INDEX)\ntime.sleep(' +
@@ -917,8 +967,12 @@ from pylgbst.hub import VisionSensor
 
 `;
 
-BlocklyPy['lego_boost_detect_distance'] = function (block) {
-  var value_time = BlocklyPy.valueToCode(block, 'TIME', BlocklyPy.ORDER_ATOMIC);
+pythonGenerator.forBlock['lego_boost_detect_distance'] = function (block) {
+  var value_time = pythonGenerator.valueToCode(
+    block,
+    'TIME',
+    pythonGenerator.ORDER_ATOMIC
+  );
 
   var code =
     'def callback(distance):\n    print("Distance: %s" % (distance))\nhub.vision_sensor.subscribe(callback, mode=VisionSensor.DISTANCE_INCHES)\ntime.sleep(' +
@@ -932,8 +986,14 @@ from pylgbst.hub import VisionSensor
 
 `;
 
-BlocklyPy['lego_boost_detect_reflected_distance'] = function (block) {
-  var value_time = BlocklyPy.valueToCode(block, 'TIME', BlocklyPy.ORDER_ATOMIC);
+pythonGenerator.forBlock['lego_boost_detect_reflected_distance'] = function (
+  block
+) {
+  var value_time = pythonGenerator.valueToCode(
+    block,
+    'TIME',
+    pythonGenerator.ORDER_ATOMIC
+  );
 
   var code =
     'def callback(reflected):\n    print("Reflected distance: %s" % (reflected))\nhub.vision_sensor.subscribe(callback, mode=VisionSensor.DISTANCE_REFLECTED)\ntime.sleep(' +
@@ -947,8 +1007,12 @@ from pylgbst.hub import VisionSensor
 
 `;
 
-BlocklyPy['lego_boost_detect_luminosity'] = function (block) {
-  var value_time = BlocklyPy.valueToCode(block, 'TIME', BlocklyPy.ORDER_ATOMIC);
+pythonGenerator.forBlock['lego_boost_detect_luminosity'] = function (block) {
+  var value_time = pythonGenerator.valueToCode(
+    block,
+    'TIME',
+    pythonGenerator.ORDER_ATOMIC
+  );
 
   var code =
     'def callback(luminosity):\n    print("Ambient light: %s" % (luminosity))\nhub.vision_sensor.subscribe(callback, mode=VisionSensor.AMBIENT_LIGHT)\ntime.sleep(' +
@@ -962,8 +1026,12 @@ from pylgbst.hub import VisionSensor
 
 `;
 
-BlocklyPy['lego_boost_detect_RGB'] = function (block) {
-  var value_time = BlocklyPy.valueToCode(block, 'TIME', BlocklyPy.ORDER_ATOMIC);
+pythonGenerator.forBlock['lego_boost_detect_RGB'] = function (block) {
+  var value_time = pythonGenerator.valueToCode(
+    block,
+    'TIME',
+    pythonGenerator.ORDER_ATOMIC
+  );
 
   var code =
     'def callback(red, green, blue):\n    print("Color RGB: %s" % (red, green, blue))\nhub.vision_sensor.subscribe(callback, mode=VisionSensor.COLOR_RGB)\ntime.sleep(' +
@@ -977,20 +1045,26 @@ from pylgbst.hub import VisionSensor, COLOR_BLUE, COLOR_CYAN, COLOR_YELLOW, COLO
 
 `;
 
-BlocklyPy['lego_boost_set_sensor_color'] = function (block) {
+pythonGenerator.forBlock['lego_boost_set_sensor_color'] = function (block) {
   var dropdown_color_value = block.getFieldValue('COLOR');
   var code = 'hub.vision_sensor.set_color(' + dropdown_color_value + ')\n';
   return code;
 };
 
-BlocklyPy['lego_boost_button_state'] = function (block) {
+pythonGenerator.forBlock['lego_boost_button_state'] = function (block) {
   var code =
     'def callback(is_pressed):\n    print("Btn pressed: %s" % is_pressed)\nhub.button.subscribe(callback)\ntime.sleep(1)\n';
   return code;
 };
 
-BlocklyPy['lego_boost_position_state_detect'] = function (block) {
-  var value_time = BlocklyPy.valueToCode(block, 'TIME', BlocklyPy.ORDER_ATOMIC);
+pythonGenerator.forBlock['lego_boost_position_state_detect'] = function (
+  block
+) {
+  var value_time = pythonGenerator.valueToCode(
+    block,
+    'TIME',
+    pythonGenerator.ORDER_ATOMIC
+  );
 
   var code =
     'def callback(state):\n    print("2-axis state: %s" % (state))\nhub.tilt_sensor.subscribe(callback, mode=TiltSensor.MODE_2AXIS_SIMPLE)\ntime.sleep(' +
@@ -999,8 +1073,12 @@ BlocklyPy['lego_boost_position_state_detect'] = function (block) {
   return code;
 };
 
-BlocklyPy['lego_boost_position_2axis_angle'] = function (block) {
-  var value_time = BlocklyPy.valueToCode(block, 'TIME', BlocklyPy.ORDER_ATOMIC);
+pythonGenerator.forBlock['lego_boost_position_2axis_angle'] = function (block) {
+  var value_time = pythonGenerator.valueToCode(
+    block,
+    'TIME',
+    pythonGenerator.ORDER_ATOMIC
+  );
 
   var code =
     'def callback(roll, pitch):\n    print("Roll: %s / Pitch: %s" % (roll, pitch))\nhub.tilt_sensor.subscribe(callback, mode=TiltSensor.MODE_2AXIS_ANGLE)\ntime.sleep(' +
@@ -1009,8 +1087,14 @@ BlocklyPy['lego_boost_position_2axis_angle'] = function (block) {
   return code;
 };
 
-BlocklyPy['lego_boost_position_3_axis_state_detect'] = function (block) {
-  var value_time = BlocklyPy.valueToCode(block, 'TIME', BlocklyPy.ORDER_ATOMIC);
+pythonGenerator.forBlock['lego_boost_position_3_axis_state_detect'] = function (
+  block
+) {
+  var value_time = pythonGenerator.valueToCode(
+    block,
+    'TIME',
+    pythonGenerator.ORDER_ATOMIC
+  );
 
   var code =
     'def callback(state):\n    print("3-axis state: %s" % (state))\nhub.tilt_sensor.subscribe(callback, mode=TiltSensor.MODE_3AXIS_SIMPLE)\ntime.sleep(' +
@@ -1019,8 +1103,14 @@ BlocklyPy['lego_boost_position_3_axis_state_detect'] = function (block) {
   return code;
 };
 
-BlocklyPy['lego_boost_position_3_axis_angle'] = function (block) {
-  var value_time = BlocklyPy.valueToCode(block, 'TIME', BlocklyPy.ORDER_ATOMIC);
+pythonGenerator.forBlock['lego_boost_position_3_axis_angle'] = function (
+  block
+) {
+  var value_time = pythonGenerator.valueToCode(
+    block,
+    'TIME',
+    pythonGenerator.ORDER_ATOMIC
+  );
 
   var code =
     'def callback(roll, pitch, yaw):\n    print("Roll: %s / Pitch: %s / Yaw: %s" % (roll, pitch, yaw))\nhub.tilt_sensor.subscribe(callback, mode=TiltSensor.MODE_2AXIS_ACCEL)\ntime.sleep(' +
@@ -1029,8 +1119,12 @@ BlocklyPy['lego_boost_position_3_axis_angle'] = function (block) {
   return code;
 };
 
-BlocklyPy['lego_boost_bumps_detect'] = function (block) {
-  var value_time = BlocklyPy.valueToCode(block, 'TIME', BlocklyPy.ORDER_ATOMIC);
+pythonGenerator.forBlock['lego_boost_bumps_detect'] = function (block) {
+  var value_time = pythonGenerator.valueToCode(
+    block,
+    'TIME',
+    pythonGenerator.ORDER_ATOMIC
+  );
 
   var code =
     'def callback(state):\n    print("Bumps state: %s" % (state))\nhub.tilt_sensor.subscribe(callback, mode=TiltSensor.MODE_IMPACT_COUNT)\ntime.sleep(' +
@@ -1548,7 +1642,7 @@ const TOOLBOX = {
 
 const BlocklyBoost = {
   Blocks: Blockly.Blocks,
-  Generator: BlocklyPy,
+  Generator: pythonGenerator,
   Toolbox: TOOLBOX
 };
 
