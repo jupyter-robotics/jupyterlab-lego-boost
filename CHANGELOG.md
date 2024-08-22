@@ -2,6 +2,27 @@
 
 <!-- <START NEW CHANGELOG ENTRY> -->
 
+## 0.1.0a3
+
+([Full Changelog](https://github.com/jupyter-robotics/jupyterlab-lego-boost/compare/c8ffd43bf88614968b93a3581132c2bf0e875ca5...9d2afc741c865177373118f9d3b462c89d95c5d0))
+
+### Enhancements made
+
+- Upgrade to `v0.3.2` of `jupyterlab-blockly` [#17](https://github.com/jupyter-robotics/jupyterlab-lego-boost/pull/17) ([@DenisaCG](https://github.com/DenisaCG))
+
+### Maintenance and upkeep improvements
+
+- Update repository links for new organisation [#18](https://github.com/jupyter-robotics/jupyterlab-lego-boost/pull/18) ([@DenisaCG](https://github.com/DenisaCG))
+- Upgrade to `v0.3.2` of `jupyterlab-blockly` [#17](https://github.com/jupyter-robotics/jupyterlab-lego-boost/pull/17) ([@DenisaCG](https://github.com/DenisaCG))
+
+### Contributors to this release
+
+([GitHub contributors page for this release](https://github.com/jupyter-robotics/jupyterlab-lego-boost/graphs/contributors?from=2024-08-21&to=2024-08-22&type=c))
+
+[@DenisaCG](https://github.com/search?q=repo%3Ajupyter-robotics%2Fjupyterlab-lego-boost+involves%3ADenisaCG+updated%3A2024-08-21..2024-08-22&type=Issues) | [@github-actions](https://github.com/search?q=repo%3Ajupyter-robotics%2Fjupyterlab-lego-boost+involves%3Agithub-actions+updated%3A2024-08-21..2024-08-22&type=Issues)
+
+<!-- <END NEW CHANGELOG ENTRY> -->
+
 ## 0.1.0a2
 
 ([Full Changelog](https://github.com/QuantStack/jupyterlab-lego-boost/compare/35d9882aef31adaad1d4ca9dcdfee9318db6dc24...0f75182a3c24e7edb9fe86ef0b5095f3e842700e))
@@ -35,8 +56,6 @@
 ([GitHub contributors page for this release](https://github.com/QuantStack/jupyterlab-lego-boost/graphs/contributors?from=2022-08-15&to=2023-01-12&type=c))
 
 [@DenisaCG](https://github.com/search?q=repo%3AQuantStack%2Fjupyterlab-lego-boost+involves%3ADenisaCG+updated%3A2022-08-15..2023-01-12&type=Issues) | [@github-actions](https://github.com/search?q=repo%3AQuantStack%2Fjupyterlab-lego-boost+involves%3Agithub-actions+updated%3A2022-08-15..2023-01-12&type=Issues) | [@hbcarlos](https://github.com/search?q=repo%3AQuantStack%2Fjupyterlab-lego-boost+involves%3Ahbcarlos+updated%3A2022-08-15..2023-01-12&type=Issues)
-
-<!-- <END NEW CHANGELOG ENTRY> -->
 
 ## 0.1.0a1
 
