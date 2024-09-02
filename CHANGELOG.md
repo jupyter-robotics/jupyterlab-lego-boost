@@ -2,6 +2,22 @@
 
 <!-- <START NEW CHANGELOG ENTRY> -->
 
+## 0.1.0a4
+
+([Full Changelog](https://github.com/jupyter-robotics/jupyterlab-lego-boost/compare/f37da982e092e034abd53dd1d234cb56f1c30275...ad2cb9c33627cf69472a8ab162aa8c9b7827b072))
+
+### Bugs fixed
+
+- Update blockly and jupyterlab-blockly packages. [#19](https://github.com/jupyter-robotics/jupyterlab-lego-boost/pull/19) ([@HaudinFlorence](https://github.com/HaudinFlorence))
+
+### Contributors to this release
+
+([GitHub contributors page for this release](https://github.com/jupyter-robotics/jupyterlab-lego-boost/graphs/contributors?from=2024-08-22&to=2024-09-02&type=c))
+
+[@HaudinFlorence](https://github.com/search?q=repo%3Ajupyter-robotics%2Fjupyterlab-lego-boost+involves%3AHaudinFlorence+updated%3A2024-08-22..2024-09-02&type=Issues)
+
+<!-- <END NEW CHANGELOG ENTRY> -->
+
 ## 0.1.0a3
 
 ([Full Changelog](https://github.com/jupyter-robotics/jupyterlab-lego-boost/compare/c8ffd43bf88614968b93a3581132c2bf0e875ca5...9d2afc741c865177373118f9d3b462c89d95c5d0))
@@ -20,8 +36,6 @@
 ([GitHub contributors page for this release](https://github.com/jupyter-robotics/jupyterlab-lego-boost/graphs/contributors?from=2024-08-21&to=2024-08-22&type=c))
 
 [@DenisaCG](https://github.com/search?q=repo%3Ajupyter-robotics%2Fjupyterlab-lego-boost+involves%3ADenisaCG+updated%3A2024-08-21..2024-08-22&type=Issues) | [@github-actions](https://github.com/search?q=repo%3Ajupyter-robotics%2Fjupyterlab-lego-boost+involves%3Agithub-actions+updated%3A2024-08-21..2024-08-22&type=Issues)
-
-<!-- <END NEW CHANGELOG ENTRY> -->
 
 ## 0.1.0a2
 
